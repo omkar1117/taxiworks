@@ -31,7 +31,7 @@ router.register(r'users', UserView, basename='users')
 router.register(r'otp', OtpView, basename='otp')
 
 urlpatterns = [
-    # path('', landing, name='login-portal'),
+    path('', landing, name='login-portal'),
     path('admin/', admin.site.urls),
     # path('api-auth/', include('rest_framework.urls')),
     path('api/v1/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

@@ -1,6 +1,7 @@
 import random
 from django.conf import settings
 from django.shortcuts import render
+from django.contrib.auth import authenticate
 
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -98,4 +99,13 @@ class OtpView(viewsets.ModelViewSet):
 
 
 def landing(request):
-    return render(request,"login.html", context={})
+    context = {}
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            return render(request, "home.html", context={"user": user})
+        else:
+            context['errors'] = "Invalid Username and Password"
+    return render(request, "login.html", context=context)
