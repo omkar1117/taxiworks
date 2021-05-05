@@ -105,7 +105,7 @@ def landing(request):
         password = request.POST.get("password")
         user = authenticate(username=username, password=password)
         if user is not None:
-            return render(request, "home.html", context={"user": user})
+            return render(request, "dashboard.html", context={"user": user})
         else:
             context['errors'] = "Invalid Username and Password"
     return render(request, "login.html", context=context)
