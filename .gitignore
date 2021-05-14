@@ -1,0 +1,14 @@
+# pycharm files
+.idea/*
+
+#Static Files
+staticfiles/*
+
+#pycache
+user/migrations/__pycache__/*
+user/__pycache__/*
+
+rydes/__pycache__/*
+rydes/migrations/__pycache__/*
+
+taxiworks/__pycache__/*

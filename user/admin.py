@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.utils.translation import gettext, gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from django.contrib.auth.admin import UserAdmin as UAdmin
-from user.models import User
+from user.models import User, Otp, UserAddress, Address
 # Register your models here.
 
 
@@ -18,4 +18,22 @@ class UserAdmin(UAdmin):
     )
 
 
+class OTPAdmin(admin.ModelAdmin):
+    model = Otp
+    fields = ('__all__',)
+
+
+class UserAddressAdmin(admin.ModelAdmin):
+    model = UserAddress
+    fields = ('user', 'address')
+
+
+class AddressAdmin(admin.ModelAdmin):
+    model = Address
+    fields = ('address', 'state', 'postal_code', 'city',)
+
+
 admin.site.register(User, UserAdmin)
+admin.site.register(Address, AddressAdmin)
+admin.site.register(Otp, OTPAdmin)
+admin.site.register(UserAddress, UserAddressAdmin)

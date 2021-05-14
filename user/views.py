@@ -109,3 +109,8 @@ def landing(request):
         else:
             context['errors'] = "Invalid Username and Password"
     return render(request, "login.html", context=context)
+
+
+def users(request):
+    users = User.objects.all()
+    return render(request, "users.html", context={"data": users})
