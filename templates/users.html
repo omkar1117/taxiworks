@@ -8,51 +8,55 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title m-b-0">Static Table With Checkboxes</h5>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>
-                                        <label class="customcheckbox m-b-20">
-                                            <input type="checkbox" id="mainCheckbox" />
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </th>
-                                    <th scope="col">UserName</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Mobile</th>
-                                </tr>
-                            </thead>
-                            <tbody class="customtable">
-                                {% for records in data %}
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title m-b-0">Static Table With Checkboxes</h5>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="thead-light">
                                     <tr>
                                         <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
+                                            <label class="customcheckbox m-b-20">
+                                                <input type="checkbox" id="mainCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <td>{{ records.username }}</td>
-                                        <td>{{ records.first_name }}</td>
-                                        <td>{{ records.last_name }}</td>
-                                        <td>{{ records.email }}</td>
-                                        <td>{{ records.mobile }}</td>
+                                        <th scope="col">UserName</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Mobile</th>
+                                        <th scope="col">Actions</th>
                                     </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody class="customtable">
+                                    {% for records in data %}
+                                        <tr>
+                                            <th>
+                                                <label class="customcheckbox">
+                                                    <input type="checkbox" class="listCheckbox" />
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </th>
+                                            <td>{{ records.username }}</td>
+                                            <td>{{ records.first_name }}</td>
+                                            <td>{{ records.last_name }}</td>
+                                            <td>{{ records.email }}</td>
+                                            <td>{{ records.mobile }}</td>
+                                            <td></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import random
 from django.conf import settings
 from django.shortcuts import render
+from django.views import generic
 from django.contrib.auth import authenticate
 
 from rest_framework import viewsets, status
@@ -111,6 +112,9 @@ def landing(request):
     return render(request, "login.html", context=context)
 
 
-def users(request):
-    users = User.objects.all()
-    return render(request, "users.html", context={"data": users})
+class PortalUserView(generic.ListView):
+    model = User
+    template_name = 'users.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {'data': User.objects.all()})
